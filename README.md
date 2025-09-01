@@ -18,13 +18,6 @@ This is a simple and modern task management application built with React and Vit
 - CSS for styling
 - Local Storage API for saving data in the browser
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js installed on your computer
-- npm (comes with Node.js)
-
 ### Installation
 
 1. Clone the repository:
@@ -73,25 +66,15 @@ project/
 └── README.md            # This file
 ```
 
-## Custom Hook: useLocalStorage
-
-This hook helps save your tasks and projects in the browser so they stay even if you refresh the page.
-
-Example usage:
-```javascript
-const [tasks, setTasks] = useLocalStorage('tasks', []);
-```
-
 ## Available Scripts
 
 - `npm run dev` - Start the development server
 - `npm run build` - Build the app for production
 - `npm run preview` - Preview the production build
 
-## License
-
-This project is open source and available under the MIT License.
-
 ---
 
 Happy task managing! 🎉
+---
+
+Made with ❤️ by Mantsha Ansari
