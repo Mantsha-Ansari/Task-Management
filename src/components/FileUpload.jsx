@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Upload, FileText, X } from 'lucide-react';
 
-// FileUpload component - allows users to upload files for tasks
-// Props: function to call when file is uploaded
 export const FileUpload = ({ onFileUpload }) => {
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState([]);

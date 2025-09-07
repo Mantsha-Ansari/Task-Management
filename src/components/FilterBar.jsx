@@ -1,8 +1,5 @@
-import React from 'react';
 import { Filter } from 'lucide-react';
 
-// FilterBar component - allows users to filter tasks by different criteria
-// Props: current filter values, projects list, and change handler functions
 export const FilterBar = ({
   selectedProject,
   selectedStatus,
