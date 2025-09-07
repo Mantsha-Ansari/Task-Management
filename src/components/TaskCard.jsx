@@ -1,9 +1,6 @@
-import React from 'react';
 import { Calendar, Edit, Trash2, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
 import { formatDate, isOverdue, getDaysUntilDue } from '../utils/dateUtils';
 
-// TaskCard component - displays a single task in a card format
-// Props: task data, project info, and callback functions
 export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) => {
   
   // Helper function to get the right icon based on task status
@@ -33,15 +30,14 @@ export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) =>
       return <span className="due-status due-soon">Due soon</span>;
     }
     
-    return null; // Task is not urgent
+    return null; 
   };
 
   return (
     <div className={`card task-card ${task.status === 'completed' ? 'completed' : ''}`}>
-      {/* Task header with status icon, priority, and action buttons */}
       <div className="task-header">
         <div className="task-status-priority">
-          {/* Status toggle button */}
+         
           <button
             className="status-btn"
             onClick={() => onToggleStatus(task.id)}
@@ -50,11 +46,11 @@ export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) =>
             {getStatusIcon(task.status)}
           </button>
           
-          {/* Priority indicator dot */}
+          
           <div className={`priority-dot priority-${task.priority}`} />
         </div>
         
-        {/* Action buttons (edit and delete) */}
+        
         <div className="task-actions">
           <button
             className="action-btn"
@@ -73,7 +69,7 @@ export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) =>
         </div>
       </div>
 
-      {/* Task content - title and description */}
+      
       <div className="task-content">
         <h3 className={task.status === 'completed' ? 'completed' : ''}>
           {task.title}
@@ -83,10 +79,10 @@ export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) =>
         )}
       </div>
 
-      {/* Task footer with project, priority, and due date info */}
+      
       <div className="task-footer">
         <div className="task-meta">
-          {/* Project tag */}
+         
           {project && (
             <span 
               className="project-tag"
@@ -96,11 +92,11 @@ export const TaskCard = ({ task, project, onEdit, onDelete, onToggleStatus }) =>
             </span>
           )}
           
-          {/* Priority text */}
+          
           <span className="priority-text">{task.priority}</span>
         </div>
         
-        {/* Due date information */}
+       
         <div className="task-date-info">
           {getDueDateStatus()}
           {task.dueDate && (

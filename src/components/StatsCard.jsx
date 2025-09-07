@@ -1,11 +1,7 @@
-import React from 'react';
 import { CheckCircle, Clock, AlertCircle, BarChart3 } from 'lucide-react';
 
-// StatsCard component - displays overview statistics in a grid
-// Props: stats object containing all our statistics
 export const StatsCard = ({ stats }) => {
-  // Calculate completion percentage
-  // If no tasks exist, show 0%, otherwise calculate percentage
+  
   const completionRate = stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0;
 
   return (

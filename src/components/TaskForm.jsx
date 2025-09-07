@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { X, Save } from 'lucide-react';
 
-// TaskForm component - modal form for creating/editing tasks
-// Props: task (if editing), projects list, save function, cancel function
 export const TaskForm = ({ task, projects, onSave, onCancel }) => {
   
-  // Form state - stores all the input values
-  // If editing, use existing task data, otherwise use defaults
+  
   const [formData, setFormData] = useState({
     title: task?.title || '',
     description: task?.description || '',
@@ -18,28 +15,24 @@ export const TaskForm = ({ task, projects, onSave, onCancel }) => {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault(); 
     
-    // Validate required fields
+    
     if (!formData.title.trim()) {
       alert('Please enter a task title');
       return;
     }
     
-    // Call the onSave function passed from parent component
     onSave(formData);
   };
 
-  // Helper function to update form data
   const updateFormData = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   return (
-    // Modal overlay - covers entire screen with semi-transparent background
     <div className="modal-overlay" onClick={onCancel}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Modal header with title and close button */}
         <div className="modal-header">
           <h2 className="modal-title">
             {task ? 'Edit Task' : 'Create New Task'}
@@ -49,9 +42,9 @@ export const TaskForm = ({ task, projects, onSave, onCancel }) => {
           </button>
         </div>
 
-        {/* Form for task data */}
+        
         <form onSubmit={handleSubmit} className="form">
-          {/* Task title input */}
+         
           <div className="form-group">
             <label className="form-label">Task Title</label>
             <input
@@ -64,7 +57,7 @@ export const TaskForm = ({ task, projects, onSave, onCancel }) => {
             />
           </div>
 
-          {/* Task description textarea */}
+          
           <div className="form-group">
             <label className="form-label">Description</label>
             <textarea
@@ -76,7 +69,7 @@ export const TaskForm = ({ task, projects, onSave, onCancel }) => {
             />
           </div>
 
-          {/* Priority and Status row */}
+          
           <div className="form-row">
             <div className="form-group">
               <label className="form-label">Priority</label>

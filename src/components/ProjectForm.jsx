@@ -3,30 +3,28 @@ import { X, Save } from 'lucide-react';
 
 // Available colors for projects
 const PROJECT_COLORS = [
-  '#3B82F6', // Blue
-  '#8B5CF6', // Purple  
-  '#10B981', // Green
-  '#F59E0B', // Amber
-  '#EF4444', // Red
-  '#06B6D4', // Cyan
-  '#84CC16', // Lime
-  '#F97316'  // Orange
+  '#3B82F6', 
+  '#8B5CF6',  
+  '#10B981', 
+  '#F59E0B', 
+  '#EF4444', 
+  '#06B6D4', 
+  '#84CC16', 
+  '#F97316'  
 ];
 
-// ProjectForm component - modal form for creating/editing projects
-// Props: project (if editing), save function, cancel function
 export const ProjectForm = ({ project, onSave, onCancel }) => {
   
   // Form state - stores all input values
   const [formData, setFormData] = useState({
     name: project?.name || '',
     description: project?.description || '',
-    color: project?.color || PROJECT_COLORS[0] // Default to first color
+    color: project?.color || PROJECT_COLORS[0] 
   });
 
   // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault(); 
     
     // Validate required fields
     if (!formData.name.trim()) {
@@ -34,20 +32,16 @@ export const ProjectForm = ({ project, onSave, onCancel }) => {
       return;
     }
     
-    // Call the onSave function with form data
     onSave(formData);
   };
 
-  // Helper function to update form data
   const updateFormData = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   return (
-    // Modal overlay
     <div className="modal-overlay" onClick={onCancel}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Modal header */}
         <div className="modal-header">
           <h2 className="modal-title">
             {project ? 'Edit Project' : 'Create New Project'}
